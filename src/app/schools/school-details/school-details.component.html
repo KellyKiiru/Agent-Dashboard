@@ -1,0 +1,34 @@
+<div class="school-details-container">
+
+  <div class="schools-container">
+    <h2>Schools</h2>
+    <ul>
+      <li *ngFor="let school of school">
+        <a [routerLink]="['/schools', school.id]">{{ school.name }}</a>
+      </li>
+    </ul>
+  </div>
+  
+
+    <h2>School Details</h2>
+    <div *ngIf="school">
+      <p><strong>Name:</strong> {{ school.name }}</p>
+      <p><strong>Type:</strong> {{ school.type }}</p>
+      <p><strong>County:</strong> {{ school.county }}</p>
+      <p><strong>Registration Date:</strong> {{ school.registrationDate }}</p>
+      <p><strong>Contact Information:</strong></p>
+      <ul>
+        <li><strong>Phone:</strong> {{ school.contactInformation.phone }}</li>
+        <li><strong>Email:</strong> {{ school.contactInformation.email }}</li>
+      </ul>
+      <p><strong>Products:</strong> {{ school.products.join(', ') }}</p>
+      <p><strong>Balance:</strong> {{ school.balance | currency }}</p>
+      <h3>Invoices</h3>
+      <ul>
+        <li *ngFor="let invoice of invoices">
+          Invoice {{ invoice.id }} - Amount: {{ invoice.amount | currency }} - Status: {{ invoice.status }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
