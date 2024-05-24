@@ -1,10 +1,14 @@
 <div class="app-container">
-  <nav>
+  <!-- <nav>
     <ul style="display: flex; justify-content: space-between;">
       <li><a routerLink="/tashboard" routerLinkActive="active">Dashboard</a></li>
       <li><a routerLink="/school-details" routerLinkActive="active">School Details</a></li>
       <li><a routerLink="/other" routerLinkActive="active">Other page</a></li>
     </ul>
-  </nav>
-  <router-outlet></router-outlet>
+  </nav> -->
+  <app-navigation></app-navigation>
+  <div class="main-content">
+    <!-- Main content of your application -->
+    <router-outlet></router-outlet>
+  </div>
 </div>
