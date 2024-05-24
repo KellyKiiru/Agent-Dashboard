@@ -72,4 +72,44 @@ export class TashboardComponent implements OnInit {
   collectPayment(invoice: { id: any; }): void {
     console.log(`Collecting payment for invoice ID: ${invoice.id}`);
   }
+
+  getCombinedSignupDistribution(): any[] {
+    if (!this.signups || !this.signups.length) {
+      return [];
+    }
+  
+    const combinedDistribution = {
+      primary: 0,
+      secondary: 0,
+      igcse: 0
+    };
+  
+    this.signups.forEach(signup => {
+      combinedDistribution.primary += signup.primary || 0;
+      combinedDistribution.secondary += signup.secondary || 0;
+      combinedDistribution.igcse += signup.igcse || 0;
+    });
+  
+    return [
+      { name: 'Primary', value: combinedDistribution.primary },
+      { name: 'Secondary', value: combinedDistribution.secondary },
+      { name: 'IGCSE', value: combinedDistribution.igcse }
+    ];
+  }
+  
+  getCombinedSignupData(): any[] {
+    if (!this.signups || !this.signups.length) {
+      return [];
+    }
+  
+    const combinedData: any[] = [];
+  
+    this.signups.forEach(signup => {
+      combinedData.push(...this.getSignupData(signup));
+    });
+  
+    return combinedData;
+  }
+  
+
 }
