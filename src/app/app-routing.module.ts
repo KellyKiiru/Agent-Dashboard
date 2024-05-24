@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'tashboard', component: TashboardComponent },
   { path: 'school-details', component: SchoolDetailsComponent },
   { path: 'school-list', component: SchoolsListComponent },
+  { path: 'school-details/:id', component: SchoolDetailsComponent },
 ];
 
 @NgModule({
