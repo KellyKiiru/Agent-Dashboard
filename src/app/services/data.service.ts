@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,29 +10,37 @@ export class DataService {
 
   private apiUrl = 'http://localhost:3000';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getCollections():Observable<any>{
-    return this.http.get(`${this.apiUrl}/collections`);
+  async getCollections(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${this.apiUrl}/collections`));
   }
 
-
-  getSignups():Observable<any>{
-    return this.http.get(`${this.apiUrl}/signups`);
+  async getSignups(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${this.apiUrl}/signups`));
   }
 
-
-  getRevenue():Observable<any>{
-    return this.http.get(`${this.apiUrl}/revenue`);
+  async getRevenue(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${this.apiUrl}/revenue`));
   }
 
-
-  getInvoices():Observable<any>{
-    return this.http.get(`${this.apiUrl}/invoices`);
+  async getInvoices(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${this.apiUrl}/invoices`));
   }
 
-  getSchools():Observable<any>{
-    return this.http.get(`${this.apiUrl}/schools`);
+  async getSchools(): Promise<any> {
+    return await firstValueFrom(this.http.get(`${this.apiUrl}/schools`));
+  }
+
+  async getSchoolName(schoolId: number): Promise<string> {
+    try {
+      const schoolsData = await this.getSchools();
+      const school = schoolsData.find((school: { id: number; }) => school.id === schoolId);
+      return school ? school.name : 'Unknown';
+    } catch (error) {
+      console.error('Error fetching school data:', error);
+      return 'Unknown';
+    }
   }
 
 }
