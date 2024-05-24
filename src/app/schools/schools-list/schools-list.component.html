@@ -1,6 +1,7 @@
-<ul>
-  <li *ngFor="let school of schools">
-    <h3>Schools</h3>
-    {{ school.name }}
+<ul class="school-list">
+  <h3>Schools</h3>
+  <li *ngFor="let school of schools" class="school-item">
+    <span>{{ school.name }}</span>
+    <button class="view-more-button">View More</button>
   </li>
 </ul>

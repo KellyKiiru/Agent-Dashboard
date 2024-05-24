@@ -1,0 +1,53 @@
+.school-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+  margin: auto;
+  font-family: "Arial, sans-serif";
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.school-list h3 {
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.school-item {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.school-item:last-child {
+  border-bottom: none;
+}
+
+.school-item:hover {
+  background-color: #f9f9f9;
+}
+
+.view-more-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.view-more-button:hover {
+    background-color: #0056b3;
+  }
