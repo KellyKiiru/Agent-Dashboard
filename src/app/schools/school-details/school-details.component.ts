@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -15,13 +13,16 @@ export class SchoolDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const schoolId = +this.route.snapshot.paramMap.get('id')!;
-    this.dataService.getSchools().subscribe(schools => {
+    try {
+      const schools = await this.dataService.getSchools();
       this.school = schools.find((school: { id: number; }) => school.id === schoolId);
-    });
-    this.dataService.getInvoices().subscribe(invoices => {
+      
+      const invoices = await this.dataService.getInvoices();
       this.invoices = invoices.filter((invoice: { schoolId: number; }) => invoice.schoolId === schoolId);
-    });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
 }
