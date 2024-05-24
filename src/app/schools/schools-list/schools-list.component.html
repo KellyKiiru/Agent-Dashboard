@@ -1,1 +1,13 @@
-<p>schools-list works!</p>
+<ul class="school-list">
+  <h3>Schools</h3>
+  <li *ngFor="let school of schools" class="school-item">
+    <span>{{ school.name }}</span>
+    <button (click)="schoolDetails(school)" class="view-more-button">View More</button>
+  </li>
+</ul>
+
+
+<div style="text-align: center; width: 100%;
+display: flex; justify-content: center; padding-top: 90px;">
+  <button class="btn btn-primary invoices" [routerLink]="['/invoices']" style="text-align: center; width: fit-content;">View Invoices</button>
+</div>

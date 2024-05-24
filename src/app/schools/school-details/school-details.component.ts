@@ -10,17 +10,29 @@ import { DataService } from 'src/app/services/data.service';
 export class SchoolDetailsComponent implements OnInit {
   school: any;
   invoices: any[] = [];
+  collections: any[] = [];
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   async ngOnInit(): Promise<void> {
     const schoolId = +this.route.snapshot.paramMap.get('id')!;
+    console.log('School ID from route:', schoolId);
+  
     try {
-      const schools = await this.dataService.getSchools();
-      this.school = schools.find((school: { id: number; }) => school.id === schoolId);
-      
+      const schools: any[] = await this.dataService.getSchools();
+      console.log('Schools data:', schools);
+  
+      this.school = schools.find((school: { id: number; }) => school.id == schoolId);
+      console.log('Found school:', this.school);
+  
       const invoices = await this.dataService.getInvoices();
       this.invoices = invoices.filter((invoice: { schoolId: number; }) => invoice.schoolId === schoolId);
+      console.log('Filtered invoices:', this.invoices);
+
+      const collections = await this.dataService.getCollections();
+      this.collections = collections.filter((collection: { schoolId: number; }) => collection.schoolId === schoolId);
+      console.log('Filtered invoices:', this.invoices);
+
     } catch (error) {
       console.error('Error fetching data:', error);
     }

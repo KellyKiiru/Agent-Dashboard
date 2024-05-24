@@ -1,0 +1,47 @@
+.school-details-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .schools-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .schools-container ul li {
+    margin-bottom: 10px;
+  }
+
+  .school-details-container h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .school-details-container p {
+    margin-bottom: 10px;
+  }
+
+  .school-details-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .school-details-container ul li {
+    margin-bottom: 5px;
+  }
+
+  .invoices-container {
+    margin-top: 20px;
+  }
+
+  .invoices-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .invoices-container ul li {
+    margin-bottom: 5px;
+  }

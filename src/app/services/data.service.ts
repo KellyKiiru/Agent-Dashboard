@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { firstValueFrom } from 'rxjs';
+import { School } from '../interfaces/school.interface';
+import { Collection } from '../interfaces/collection.interface';
+import { Invoice } from '../interfaces/invoice.interface';
 
 @Injectable({
   providedIn: 'root'
