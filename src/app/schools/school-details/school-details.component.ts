@@ -14,7 +14,7 @@ export class SchoolDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   async ngOnInit(): Promise<void> {
-    const schoolId = +this.route.snapshot.paramMap.get('id')! + 1 ;
+    const schoolId = +this.route.snapshot.paramMap.get('id')!;
     console.log('School ID from route:', schoolId);
   
     try {
