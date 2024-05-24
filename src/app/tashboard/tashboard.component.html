@@ -1,78 +1,85 @@
 <div class="dashboard-container">
-    <!-- Top Card Metrics -->
-    <div class="top-metrics">
-      <div class="metric-card">
-        <h3>Collections</h3>
-        <p>{{ collections.length }}</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3">
+            <!-- <app-navigation></app-navigation> -->
+          </div>
+          <!-- Top Card Metrics -->
+          <div class="col-md-9">
+            <div class="top-metrics">
+              <div class="metric-card">
+                <h3>Collections</h3>
+                <p>{{ collections.length }}</p>
+              </div>
+              <div class="metric-card">
+                <h3>Sign-ups</h3>
+                <p>{{ getTotalSignups() }}</p>
+              </div>
+              <div class="metric-card">
+                <h3>Total Revenue</h3>
+                <p>{{ getTotalRevenue() | currency: 'KES' }}</p>
+              </div>
+              <div class="metric-card">
+                <h3>Bounced Cheques</h3>
+                <p>{{ getBouncedCheques() }}</p>
+              </div>
+            </div>
+            <!-- Targets Visualization -->
+            <!-- <div class="targets-visualization">
+              <h3>Sign-ups Targets</h3>
+              <div *ngFor="let signup of signups">
+                <h4>{{ signup.productId | titlecase }}</h4>
+                <ngx-charts-pie-chart
+                  [results]="getSignupData(signup)"
+                  [legend]="true"
+                  [labels]="true"
+                  [doughnut]="true"
+                  [arcWidth]="0.25">
+                </ngx-charts-pie-chart>
+              </div>
+            </div> -->
+            <!-- Signups Overview -->
+            <!-- <div class="signups-overview">
+              <h3>Sign-ups Overview</h3>
+              <div *ngFor="let signup of signups">
+                <h4>{{ signup.productId | titlecase }}</h4>
+                <ngx-charts-bar-vertical
+                  [results]="getSignupDistribution(signup)"
+                  [legend]="true"
+                  [xAxis]="true"
+                  [yAxis]="true"
+                  [showXAxisLabel]="true"
+                  [showYAxisLabel]="true"
+                  [xAxisLabel]="'School Type'"
+                  [yAxisLabel]="'Sign-ups'">
+                </ngx-charts-bar-vertical>
+              </div>
+            </div> -->
+            <!-- Upcoming Invoices -->
+            <div class="upcoming-invoices" *ngIf="invoices && invoices.length">
+              <h3>Upcoming Invoices</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>School Name</th>
+                    <th>Amount Due</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let invoice of invoices">
+                    <td>{{ getSchoolName(invoice.schoolId) }}</td>
+                    <td>{{ invoice.amount | currency: 'KES'}}</td>
+                    <td>{{ invoice.dueDate }}</td>
+                    <td><button (click)="collectPayment(invoice)">Collect Payment</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+        </div>
       </div>
-      <div class="metric-card">
-        <h3>Sign-ups</h3>
-        <p>{{ getTotalSignups() }}</p>
-      </div>
-      <div class="metric-card">
-        <h3>Total Revenue</h3>
-        <p>{{ getTotalRevenue() | currency }}</p>
-      </div>
-      <div class="metric-card">
-        <h3>Bounced Cheques</h3>
-        <p>{{ getBouncedCheques() }}</p>
-      </div>
-    </div>
-  
-    <!-- Targets Visualization -->
-    <div class="targets-visualization">
-      <h3>Sign-ups Targets</h3>
-      <div *ngFor="let signup of signups">
-        <h4>{{ signup.productId | titlecase }}</h4>
-        <ngx-charts-pie-chart 
-          [results]="getSignupData(signup)"
-          [legend]="true"
-          [labels]="true"
-          [doughnut]="true"
-          [arcWidth]="0.25">
-        </ngx-charts-pie-chart>
-      </div>
-    </div>
-  
-    <!-- Signups Overview -->
-    <div class="signups-overview">
-      <h3>Sign-ups Overview</h3>
-      <div *ngFor="let signup of signups">
-        <h4>{{ signup.productId | titlecase }}</h4>
-        <ngx-charts-bar-vertical
-          [results]="getSignupDistribution(signup)"
-          [legend]="true"
-          [xAxis]="true"
-          [yAxis]="true"
-          [showXAxisLabel]="true"
-          [showYAxisLabel]="true"
-          [xAxisLabel]="'School Type'"
-          [yAxisLabel]="'Sign-ups'">
-        </ngx-charts-bar-vertical>
-      </div>
-    </div>
-  
-    <!-- Upcoming Invoices -->
-    <div class="upcoming-invoices">
-      <h3>Upcoming Invoices</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>School Name</th>
-            <th>Amount Due</th>
-            <th>Due Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let invoice of getUpcomingInvoices()">
-            <td>{{ getSchoolName(invoice.schoolId) }}</td>
-            <td>{{ invoice.amount | currency }}</td>
-            <td>{{ invoice.dueDate }}</td>
-            <td><button (click)="collectPayment(invoice)">Collect Payment</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
   
