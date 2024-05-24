@@ -19,6 +19,8 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 import { InvoicesComponent } from './schools/invoices/invoices.component';
 import { MyChartComponent } from './my-chart/my-chart.component';
 import { TashboardComponent } from './tashboard/tashboard.component';
+import { InvoicesListComponent } from './invoices-list/invoices-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { TashboardComponent } from './tashboard/tashboard.component';
     SchoolDetailsComponent,
     InvoicesComponent,
     MyChartComponent,
-    TashboardComponent
+    TashboardComponent,
+    InvoicesListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
