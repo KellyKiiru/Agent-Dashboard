@@ -15,22 +15,16 @@ export class TashboardComponent implements OnInit {
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.dataService.getCollections().subscribe(data => {
-      this.collections = data;
-    });
-    this.dataService.getSignups().subscribe(data => {
-      this.signups = data;
-    });
-    this.dataService.getRevenue().subscribe(data => {
-      this.revenue = data;
-    });
-    this.dataService.getSchools().subscribe(data => {
-      this.schools = data;
-    });
-    this.dataService.getInvoices().subscribe(data => {
-      this.invoices = data;
-    });
+  async ngOnInit(): Promise<void> {
+    try {
+      this.collections = await this.dataService.getCollections();
+      this.signups = await this.dataService.getSignups();
+      this.revenue = await this.dataService.getRevenue();
+      this.schools = await this.dataService.getSchools();
+      this.invoices = await this.dataService.getInvoices();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   }
 
   getTotalSignups(): number {
@@ -67,12 +61,15 @@ export class TashboardComponent implements OnInit {
   }
 
   getSchoolName(schoolId: number): string {
-    const school = this.schools.find(school => school.id === schoolId);
+    if (!this.schools || !this.schools.length) {
+      console.warn('Schools data not available.');
+      return 'Unknown';
+    }
+    const school = this.schools.find(school => school.id == schoolId);
     return school ? school.name : 'Unknown';
   }
 
   collectPayment(invoice: { id: any; }): void {
-    // Implement payment collection logic here
     console.log(`Collecting payment for invoice ID: ${invoice.id}`);
   }
 }
