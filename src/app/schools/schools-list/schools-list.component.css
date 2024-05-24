@@ -36,7 +36,7 @@
   background-color: #f9f9f9;
 }
 
-.view-more-button {
+.view-more-button, .invoices {
   padding: 5px 10px;
   background-color: #007bff;
   color: #fff;
@@ -48,6 +48,6 @@
 }
 
 
-.view-more-button:hover {
+.view-more-button:hover, .invoices {
     background-color: #0056b3;
   }

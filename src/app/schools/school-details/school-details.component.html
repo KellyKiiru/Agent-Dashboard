@@ -31,6 +31,17 @@
               </li>
             </ul>
           </div>
+
+
+          <div class="collections-container">
+            <h3>Collections</h3>
+            <ul>
+              <li *ngFor="let collection of collections">
+                collection {{ collection.id }} - Amount: {{ collection.amount | currency }} - Status: {{ collection.status }}
+              </li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>

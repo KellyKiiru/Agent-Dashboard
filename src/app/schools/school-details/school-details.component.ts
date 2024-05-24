@@ -10,6 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class SchoolDetailsComponent implements OnInit {
   school: any;
   invoices: any[] = [];
+  collections: any[] = [];
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
@@ -27,6 +28,11 @@ export class SchoolDetailsComponent implements OnInit {
       const invoices = await this.dataService.getInvoices();
       this.invoices = invoices.filter((invoice: { schoolId: number; }) => invoice.schoolId === schoolId);
       console.log('Filtered invoices:', this.invoices);
+
+      const collections = await this.dataService.getCollections();
+      this.collections = collections.filter((collection: { schoolId: number; }) => collection.schoolId === schoolId);
+      console.log('Filtered invoices:', this.invoices);
+
     } catch (error) {
       console.error('Error fetching data:', error);
     }
