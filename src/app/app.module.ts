@@ -19,7 +19,6 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 import { InvoicesComponent } from './schools/invoices/invoices.component';
 import { MyChartComponent } from './my-chart/my-chart.component';
 import { TashboardComponent } from './tashboard/tashboard.component';
-import { SchoolComponent } from './school/school.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { SchoolComponent } from './school/school.component';
     SchoolDetailsComponent,
     InvoicesComponent,
     MyChartComponent,
-    TashboardComponent,
-    SchoolComponent
+    TashboardComponent
   ],
   imports: [
     BrowserModule,
