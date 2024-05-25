@@ -10,12 +10,12 @@ import { SchoolsListComponent } from './schools/schools-list/schools-list.compon
 import { SchoolDetailsComponent } from './schools/school-details/school-details.component';
 import { InvoicesComponent } from './schools/invoices/invoices.component';
 import { MyChartComponent } from './my-chart/my-chart.component';
-import { TashboardComponent } from './tashboard/tashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { FormsModule } from '@angular/forms';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import {  MatSidenavModule } from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SchoolDetailsComponent,
     InvoicesComponent,
     MyChartComponent,
-    TashboardComponent,
+    DashboardComponent,
     InvoicesListComponent,
     SideNavComponent,
     CollectionsComponent

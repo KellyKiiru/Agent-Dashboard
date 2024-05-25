@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TashboardComponent } from './tashboard.component';
+import { TashboardComponent } from './dashboard.component';
 
 describe('TashboardComponent', () => {
   let component: TashboardComponent;

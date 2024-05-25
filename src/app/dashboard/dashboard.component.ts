@@ -3,10 +3,10 @@ import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-tashboard',
-  templateUrl: './tashboard.component.html',
-  styleUrls: ['./tashboard.component.css']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class TashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit {
   collections: any[] = [];
   signups: any[] = [];
   revenue: any[] = [];
