@@ -1,6 +1,6 @@
+import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { School } from 'src/app/interfaces/school.interface';
-import { SchoolService } from 'src/app/services/school.service';
 import { Invoice } from 'src/app/interfaces/invoice.interface';
 import { Collection } from 'src/app/interfaces/collection.interface';
 import { Router } from '@angular/router';
@@ -17,10 +17,10 @@ export class SchoolsListComponent implements OnInit {
   selectedSchool: any = null;
 
 
-  constructor(private schoolService: SchoolService, private router: Router) { }
+  constructor(private schoolService: DataService, private router: Router) { }
 
   ngOnInit(): void {
-    this.schoolService.getSchools().subscribe(schools => {
+    this.schoolService.getSchools().then((schools: School[]) => {
       this.schools = schools;
     });
   }
