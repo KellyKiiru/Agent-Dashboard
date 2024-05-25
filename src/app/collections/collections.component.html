@@ -1,1 +1,15 @@
-<p>collections works!</p>
+<div class="container">
+    <h2>Collections</h2>
+    <ul class="list-group">
+      <li *ngFor="let collection of collections" class="list-group-item">
+        <div>ID: {{ collection.id }}</div>
+        <div>School ID: {{ collection.schoolId }}</div>
+        <div>Invoice ID: {{ collection.invoiceId }}</div>
+        <div>Date: {{ collection.date }}</div>
+        <div>Amount: {{ collection.amount }}</div>
+        <div>Status: {{ collection.status }}</div>
+        <button (click)="updateCollectionStatus(collection.id, 'Valid')" class="btn btn-success">Mark as Valid</button>
+        <button (click)="updateCollectionStatus(collection.id, 'Bounced')" class="btn btn-danger">Mark as Bounced</button>
+      </li>
+    </ul>
+  </div>
