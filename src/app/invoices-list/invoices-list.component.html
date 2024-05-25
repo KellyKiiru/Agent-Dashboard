@@ -5,7 +5,12 @@
     <div class="col-md-3">
       <div class="filter-card">
         <label for="filterSelect" class="form-label">Filter: </label>
-        <select id="filterSelect" class="form-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
+        <select
+          id="filterSelect"
+          class="form-select"
+          [(ngModel)]="filterStatus"
+          (change)="applyFilter()"
+        >
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="pending">Pending</option>
@@ -29,16 +34,29 @@
       </li>
       <li class="table-row" *ngFor="let invoice of filteredInvoices">
         <div class="col col-1" data-label="Invoice Id">{{ invoice.id }}</div>
-        <div class="col col-2" data-label="Invoice Item">{{ invoice.invoiceItem }}</div>
-        <div class="col col-3" data-label="Creation Date">{{ invoice.creationDate }}</div>
+        <div class="col col-2" data-label="Invoice Item">
+          {{ invoice.invoiceItem }}
+        </div>
+        <div class="col col-3" data-label="Creation Date">
+          {{ invoice.creationDate }}
+        </div>
         <div class="col col-4" data-label="Due Date">{{ invoice.dueDate }}</div>
         <div class="col col-4" data-label="Amount">{{ invoice.amount }}</div>
-        <div class="col col-4" data-label="Paid Amount">{{ invoice.paidAmount }}</div>
+        <div class="col col-4" data-label="Paid Amount">
+          {{ invoice.paidAmount }}
+        </div>
         <div class="col col-4" data-label="Balance">{{ invoice.balance }}</div>
         <div class="col col-4" data-label="Status">{{ invoice.status }}</div>
         <div class="col col-4" data-label="Actions">
-          <button class="btn btn-sm btn-warning" (click)="editInvoice(invoice)">Edit</button>
-          <button class="btn btn-sm btn-danger" (click)="deleteInvoice(invoice.id)">Delete</button>
+          <button class="btn btn-sm btn-warning" (click)="editInvoice(invoice)">
+            Edit
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="deleteInvoice(invoice.id)"
+          >
+            Delete
+          </button>
         </div>
       </li>
     </ul>
@@ -47,7 +65,9 @@
   <div class="invoice-management">
     <div class="row mb-3">
       <div class="col-md-9 text-end">
-        <button class="btn btn-primary" (click)="openInvoiceForm()">Add Invoice</button>
+        <button class="btn btn-primary" (click)="openInvoiceForm()">
+          Add Invoice
+        </button>
       </div>
     </div>
   </div>
@@ -57,46 +77,104 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ isEditing ? 'Edit Invoice' : 'Add Invoice' }}</h5>
-          <button type="button" class="close" (click)="closeModal()">&times;</button>
+          <h5 class="modal-title">
+            {{ isEditing ? "Edit Invoice" : "Add Invoice" }}
+          </h5>
+          <button type="button" class="close" (click)="closeModal()">
+            &times;
+          </button>
         </div>
         <div class="modal-body">
           <form (ngSubmit)="saveInvoice()">
             <div class="form-group">
               <label for="invoiceItem">Invoice Item</label>
-              <input type="text" id="invoiceItem" [(ngModel)]="currentInvoice.invoiceItem" name="invoiceItem" class="form-control" required>
+              <input
+                type="text"
+                id="invoiceItem"
+                [(ngModel)]="currentInvoice.invoiceItem"
+                name="invoiceItem"
+                class="form-control"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="creationDate">Creation Date</label>
-              <input type="date" id="creationDate" [(ngModel)]="currentInvoice.creationDate" name="creationDate" class="form-control" required>
+              <input
+                type="date"
+                id="creationDate"
+                [(ngModel)]="currentInvoice.creationDate"
+                name="creationDate"
+                class="form-control"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="dueDate">Due Date</label>
-              <input type="date" id="dueDate" [(ngModel)]="currentInvoice.dueDate" name="dueDate" class="form-control" required>
+              <input
+                type="date"
+                id="dueDate"
+                [(ngModel)]="currentInvoice.dueDate"
+                name="dueDate"
+                class="form-control"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="amount">Amount</label>
-              <input type="number" id="amount" [(ngModel)]="currentInvoice.amount" name="amount" class="form-control" required>
+              <input
+                type="number"
+                id="amount"
+                [(ngModel)]="currentInvoice.amount"
+                name="amount"
+                class="form-control"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="paidAmount">Paid Amount</label>
-              <input type="number" id="paidAmount" [(ngModel)]="currentInvoice.paidAmount" name="paidAmount" class="form-control">
+              <input
+                type="number"
+                id="paidAmount"
+                [(ngModel)]="currentInvoice.paidAmount"
+                name="paidAmount"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
               <label for="balance">Balance</label>
-              <input type="number" id="balance" [(ngModel)]="currentInvoice.balance" name="balance" class="form-control">
+              <input
+                type="number"
+                id="balance"
+                [(ngModel)]="currentInvoice.balance"
+                name="balance"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
               <label for="status">Status</label>
-              <select id="status" [(ngModel)]="currentInvoice.status" name="status" class="form-select">
+              <select
+                id="status"
+                [(ngModel)]="currentInvoice.status"
+                name="status"
+                class="form-select"
+              >
                 <option value="Completed">Completed</option>
                 <option value="Pending">Pending</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Save' }}</button>
+            <button type="submit" class="btn btn-primary">
+              {{ isEditing ? "Update" : "Save" }}
+            </button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+  <h2>Collections</h2>
+<div *ngFor="let invoice of invoices">
+  <h3>{{ invoice.invoiceItem }}</h3>
+  <p>Status: <span [ngClass]="{'completed': invoice.status === 'Completed', 'pending': invoice.status === 'Pending', 'partially-paid': invoice.status === 'Partially Paid'}">{{ invoice.status }}</span></p>
+</div>
+
 </div>
