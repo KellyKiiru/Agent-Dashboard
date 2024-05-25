@@ -8,9 +8,12 @@ import { Invoice } from '../interfaces/invoice.interface';
   styleUrls: ['./invoices-list.component.css']
 })
 export class InvoicesListComponent implements OnInit {
-  invoices: Invoice[] = [];
+  invoices: Invoice[] = []; 
   filteredInvoices: Invoice[] = [];
   filterStatus: string = 'all';
+  isModalOpen: boolean = false;
+  isEditing: boolean = false;
+  currentInvoice: Invoice = this.createEmptyInvoice();
 
   constructor(private invoiceService: InvoiceService) { }
 
@@ -39,4 +42,66 @@ export class InvoicesListComponent implements OnInit {
       );
     }
   }
+
+  openInvoiceForm(invoice?: Invoice): void {
+    this.isEditing = !!invoice;
+    this.currentInvoice = invoice ? { ...invoice } : this.createEmptyInvoice();
+    this.isModalOpen = true;
+  }
+
+  closeModal(): void {
+    this.isModalOpen = false;
+  }
+
+  
+  editInvoice(invoice: Invoice): void {
+    this.openInvoiceForm(invoice);
+  }
+
+  saveInvoice(): void {
+    if (this.isEditing) {
+      this.invoiceService.updateInvoice(this.currentInvoice).subscribe(() => {
+        this.loadInvoices();
+        this.closeModal();
+      }, error => {
+        console.error('Error updating invoice:', error);
+      });
+    } else {
+      this.invoiceService.createInvoice(this.currentInvoice).subscribe(() => {
+        this.loadInvoices();
+        this.closeModal();
+      }, error => {
+        console.error('Error creating invoice:', error);
+      });
+    }
+  }
+
+  deleteInvoice(invoiceId: number): void {
+    if (confirm('Are you sure you want to delete this invoice?')) {
+      this.invoiceService.deleteInvoice(invoiceId).subscribe(() => {
+        this.loadInvoices();
+      });
+    }
+  }
+
+  calculateDaysUntilDue(dueDate: string): number {
+    const due = new Date(dueDate).getTime();
+    const now = new Date().getTime();
+    return Math.ceil((due - now) / (1000 * 60 * 60 * 24));
+  }
+
+  private createEmptyInvoice(): Invoice {
+    return {
+      id: 0,
+      schoolId: 0,
+      invoiceItem: '',
+      creationDate: '',
+      dueDate: '',
+      amount: 0,
+      paidAmount: 0,
+      balance: 0,
+      status: 'Pending'
+    };
+  }
+  
 }
