@@ -1,27 +1,63 @@
 # SalesAgentDashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+## Introduction
 
-## Development server
+Sales Agent Dashboard to manage, view and update school data on sales from various Zeraki products.
+Displays data with pie charts, bar charts and tables.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Screenshots
 
-## Code scaffolding
+![dashboard1](https://github.com/KellyKiiru/Agent-Dashboard.github.io/blob/main/src/assets/screenshots/Screenshot%20from%202024-05-25%2019-07-13.png?raw=true)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+![dashboard1](https://github.com/KellyKiiru/Agent-Dashboard.github.io/blob/main/src/assets/screenshots/Screenshot%20from%202024-05-25%2019-07-34.png?raw=true)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![invoices](https://github.com/KellyKiiru/Agent-Dashboard.github.io/blob/main/src/assets/screenshots/Screenshot%20from%202024-05-25%2019-11-59.png?raw=true)
 
-## Running unit tests
+![school details](https://github.com/KellyKiiru/Agent-Dashboard.github.io/blob/main/src/assets/screenshots/Screenshot%20from%202024-05-25%2019-12-37.png?raw=true)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Prerequisites
 
-## Running end-to-end tests
+1. Angular
+2. Node
+3. npm
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project set up
 
-## Further help
+1. Clone the repository:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   git clone https://github.com/KellyKiiru/Agent-Dashboard.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd Agent-Dashboard
+   ```
+
+3. Install project dependencies:
+
+   ```bash
+   npm i
+   ```
+
+4. Install json-server globally:
+
+   ```bash
+   npm i -g json-server
+   ```
+
+5. Start the Angular development server:
+
+   ```bash
+   ng serve
+   ```
+6. Start the server:
+
+   ```bash
+    json-server src/assets/data/db.json
+   ```
+
+
+7. Access the local web app on [http://localhost:4200/](http://localhost:4200/) to view the application.
