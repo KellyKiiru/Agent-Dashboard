@@ -1,4 +1,5 @@
 export interface Invoice {
+    collections: any;
     id: number;
     schoolId: number;
     invoiceItem: string;

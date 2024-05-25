@@ -35,4 +35,15 @@ export class InvoiceService {
     return this.http.delete<void>(`${this.apiUrl}/invoices/${invoiceId}`);
   }
 
+  createCollection(collectionData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/collections`, collectionData);
+  }
+  
+  updateCollection(collectionId: number, updatedData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/collections/${collectionId}`, updatedData);
+  }
+  
+  deleteCollection(collectionId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/collections/${collectionId}`);
+  }
 }
