@@ -90,6 +90,34 @@ export class InvoicesListComponent implements OnInit {
     return Math.ceil((due - now) / (1000 * 60 * 60 * 24));
   }
 
+
+  updateInvoiceStatus(invoice: any) {
+    const totalAmount = invoice.amount;
+    const paidAmount = invoice.paidAmount + invoice.collections.reduce((total: any, collection: {amount: any;}) => total + collection.amount, 0);
+  
+    if (paidAmount === totalAmount) {
+      invoice.status = 'Completed';
+    } else if (paidAmount > 0 && paidAmount < totalAmount) {
+      invoice.status = 'Partially Paid';
+    } else {
+      invoice.status = 'Pending';
+    }
+  }
+
+  addCollectionToInvoice(invoiceId: number, collectionData: any) {
+    const invoiceIndex = this.invoices.findIndex(invoice => invoice.id === invoiceId);
+    if (invoiceIndex !== -1) {
+      const invoice = this.invoices[invoiceIndex];
+      invoice.collections.push(collectionData);
+  
+      // Update invoice balance
+      invoice.balance -= collectionData.amount;
+  
+      // Update invoice status based on collection result
+      this.updateInvoiceStatus(invoice);
+    }
+  }
+
   private createEmptyInvoice(): Invoice {
     return {
       id: 0,
@@ -100,8 +128,9 @@ export class InvoicesListComponent implements OnInit {
       amount: 0,
       paidAmount: 0,
       balance: 0,
-      status: 'Pending'
+      status: 'Pending', 
+      collections: [] 
     };
-  }
+  } 
   
 }
