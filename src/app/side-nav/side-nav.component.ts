@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-side-nav',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./side-nav.component.css']
 })
 export class SideNavComponent {
+
+  @Input()  isExpanded!: boolean;
+  @Output() toggleMenu = new EventEmitter();
 
 }

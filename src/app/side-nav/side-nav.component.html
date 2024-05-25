@@ -1,14 +1,21 @@
+<div class="content-container">
+        <button type="button" mat-button (click)="sidenav.toggle()">
+          <i class='bx bx-menu'></i>
+        </button>
+        <router-outlet></router-outlet>
+      </div>
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened>
-      <!-- Add navigation links here -->
-      <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a mat-list-item routerLink="/schools" routerLinkActive="active">Schools</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <!-- Main content of the application -->
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <mat-sidenav #sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/tashboard" routerLinkActive="active"
+        >Dashboard</a
+      >
+      <a mat-list-item routerLink="/school-list" routerLinkActive="active"
+        >Schools</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
