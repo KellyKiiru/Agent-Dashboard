@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sales-Agent-Dashboard';
+
+  public isExpanded = false;
+
+  public toggleMenu() {
+    this.isExpanded = !this.isExpanded;
+  }
 }
