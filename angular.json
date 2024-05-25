@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Sales-Agent-Dashboard:build:production"
+              "buildTarget": "Sales-Agent-Dashboard:build:production"
             },
             "development": {
-              "browserTarget": "Sales-Agent-Dashboard:build:development"
+              "buildTarget": "Sales-Agent-Dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Sales-Agent-Dashboard:build"
+            "buildTarget": "Sales-Agent-Dashboard:build"
           }
         },
         "test": {
