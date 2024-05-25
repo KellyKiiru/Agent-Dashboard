@@ -36,8 +36,7 @@ export class SchoolsListComponent implements OnInit {
   }
 
   schoolDetails(school: any) {
-    const schoolId = 1;
-    this.router.navigate(['/school-details', schoolId]);
+    this.router.navigate(['/school-details', school.id]);
     this.fetchInvoicesAndCollections(school.id);
   }
 }

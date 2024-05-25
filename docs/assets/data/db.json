@@ -1,0 +1,126 @@
+{
+    "collections": [
+      {
+        "id": 1,
+        "schoolId": 1,
+        "invoiceId": 1,
+        "date": "2024-05-01",
+        "amount": 5000,
+        "status": "Valid"
+      },
+      {
+        "id": 2,
+        "schoolId": 2,
+        "invoiceId": 2,
+        "date": "2024-05-02",
+        "amount": 3000,
+        "status": "Bounced"
+      },
+      {
+        "id": 3,
+        "schoolId": 1,
+        "invoiceId": 3,
+        "date": "2024-05-03",
+        "amount": 7000,
+        "status": "Valid"
+      }
+    ],
+    "signups": [
+      {
+        "productId": "analytics",
+        "primary": 15,
+        "secondary": 20,
+        "igcse": 5
+      },
+      {
+        "productId": "finance",
+        "primary": 10,
+        "secondary": 25,
+        "igcse": 7
+      },
+      {
+        "productId": "timetable",
+        "primary": 12,
+        "secondary": 18,
+        "igcse": 8
+      }
+    ],
+    "revenue": [
+      {
+        "productId": "analytics",
+        "amount": 50000
+      },
+      {
+        "productId": "finance",
+        "amount": 60000
+      },
+      {
+        "productId": "timetable",
+        "amount": 45000
+      }
+    ],
+    "schools": [
+      {
+        "id": 1,
+        "name": "Springfield Elementary",
+        "type": "Primary",
+        "county": "Nairobi",
+        "registrationDate": "2023-01-15",
+        "contactInformation": {
+          "phone": "123-456-7890",
+          "email": "info@springfield.com"
+        },
+        "products": ["analytics", "finance"],
+        "balance": 12000
+      },
+      {
+        "id": 2,
+        "name": "Shelbyville High",
+        "type": "Secondary",
+        "county": "Kiambu",
+        "registrationDate": "2023-02-10",
+        "contactInformation": {
+          "phone": "234-567-8901",
+          "email": "info@shelbyville.com"
+        },
+        "products": ["analytics", "timetable"],
+        "balance": 8000
+      }
+    ],
+    "invoices": [
+      {
+        "id": 1,
+        "schoolId": 1,
+        "invoiceItem": "Zeraki Analytics",
+        "creationDate": "2024-04-01",
+        "dueDate": "2024-05-01",
+        "amount": 5000,
+        "paidAmount": 5000,
+        "balance": 0,
+        "status": "Completed"
+      },
+      {
+        "id": 2,
+        "schoolId": 2,
+        "invoiceItem": "Zeraki Timetable",
+        "creationDate": "2024-04-10",
+        "dueDate": "2024-05-10",
+        "amount": 3000,
+        "paidAmount": 0,
+        "balance": 3000,
+        "status": "Pending"
+      },
+      {
+        "id": 3,
+        "schoolId": 1,
+        "invoiceItem": "Zeraki Finance",
+        "creationDate": "2024-04-20",
+        "dueDate": "2024-05-20",
+        "amount": 7000,
+        "paidAmount": 7000,
+        "balance": 0,
+        "status": "Completed"
+      }
+    ]
+  }
+  

@@ -85,7 +85,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form (ngSubmit)="saveInvoice()">
+          <form>
             <div class="form-group">
               <label for="invoiceItem">Invoice Item</label>
               <input
@@ -162,7 +162,7 @@
                 <option value="Pending">Pending</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button (click)="saveInvoice()" type="submit" class="btn btn-primary">
               {{ isEditing ? "Update" : "Save" }}
             </button>
           </form>

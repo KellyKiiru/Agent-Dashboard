@@ -1,6 +1,6 @@
+import { Invoice } from 'src/app/interfaces/invoice.interface';
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from '../services/invoice.service';
-import { Invoice } from '../interfaces/invoice.interface';
 
 @Component({
   selector: 'app-invoices-list',
@@ -8,7 +8,7 @@ import { Invoice } from '../interfaces/invoice.interface';
   styleUrls: ['./invoices-list.component.css']
 })
 export class InvoicesListComponent implements OnInit {
-  invoices: Invoice[] = []; 
+  invoices: Invoice[] = [];
   filteredInvoices: Invoice[] = [];
   filterStatus: string = 'all';
   isModalOpen: boolean = false;
@@ -25,6 +25,15 @@ export class InvoicesListComponent implements OnInit {
     this.invoiceService.getAllInvoices().subscribe(
       (invoices: Invoice[]) => {
         this.invoices = invoices;
+        let idsArray: any[] = [];
+        this.invoices.forEach((invoice: any) => {
+          idsArray.push(invoice.id);
+        });
+        idsArray = idsArray.sort((a: any, b: any) => {
+          return b - a;
+        })
+        console.log(idsArray);
+
         this.applyFilter(); // Apply initial filter
       },
       (error) => {
@@ -53,7 +62,7 @@ export class InvoicesListComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  
+
   editInvoice(invoice: Invoice): void {
     this.openInvoiceForm(invoice);
   }
@@ -67,6 +76,14 @@ export class InvoicesListComponent implements OnInit {
         console.error('Error updating invoice:', error);
       });
     } else {
+      let idsArray: any[] = [];
+      this.invoices.forEach((invoice: any) => {
+        idsArray.push(+invoice.id);
+      });
+      idsArray = idsArray.sort((a: any, b: any) => {
+        return b - a;
+      })
+      this.currentInvoice.id = idsArray[0]+1;
       this.invoiceService.createInvoice(this.currentInvoice).subscribe(() => {
         this.loadInvoices();
         this.closeModal();
@@ -80,6 +97,7 @@ export class InvoicesListComponent implements OnInit {
     if (confirm('Are you sure you want to delete this invoice?')) {
       this.invoiceService.deleteInvoice(invoiceId).subscribe(() => {
         this.loadInvoices();
+        console.log("it's working")
       });
     }
   }
@@ -93,8 +111,8 @@ export class InvoicesListComponent implements OnInit {
 
   updateInvoiceStatus(invoice: any) {
     const totalAmount = invoice.amount;
-    const paidAmount = invoice.paidAmount + invoice.collections.reduce((total: any, collection: {amount: any;}) => total + collection.amount, 0);
-  
+    const paidAmount = invoice.paidAmount + invoice.collections.reduce((total: any, collection: { amount: any; }) => total + collection.amount, 0);
+
     if (paidAmount === totalAmount) {
       invoice.status = 'Completed';
     } else if (paidAmount > 0 && paidAmount < totalAmount) {
@@ -109,10 +127,10 @@ export class InvoicesListComponent implements OnInit {
     if (invoiceIndex !== -1) {
       const invoice = this.invoices[invoiceIndex];
       invoice.collections.push(collectionData);
-  
+
       // Update invoice balance
       invoice.balance -= collectionData.amount;
-  
+
       // Update invoice status based on collection result
       this.updateInvoiceStatus(invoice);
     }
@@ -128,9 +146,9 @@ export class InvoicesListComponent implements OnInit {
       amount: 0,
       paidAmount: 0,
       balance: 0,
-      status: 'Pending', 
-      collections: [] 
+      status: 'Pending',
+      collections: []
     };
-  } 
-  
+  }
+
 }

@@ -7,12 +7,12 @@ import { Invoice } from '../interfaces/invoice.interface';
   providedIn: 'root'
 })
 export class InvoiceService {
-  private apiUrl = 'http://localhost:3000/invoices';
+  private apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
   getAllInvoices(): Observable<Invoice[]> {
-    return this.http.get<Invoice[]>(this.apiUrl);
+    return this.http.get<Invoice[]>(`${this.apiUrl}/invoices`);
   }
 
   getInvoicesById(schoolId: number): Observable<any> {
