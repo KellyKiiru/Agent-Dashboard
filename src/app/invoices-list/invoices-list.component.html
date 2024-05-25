@@ -3,42 +3,40 @@
   
     <div class="row mb-3">
       <div class="col-md-3">
-        <label for="filterSelect" class="form-label">Filter:</label>
-        <select id="filterSelect" class="form-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="pending">Pending</option>
-        </select>
+        <div class="filter-card">
+          <label for="filterSelect" class="form-label">Filter:</label>
+          <select id="filterSelect" class="form-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
       </div>
     </div>
-  
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered shadow-sm rounded">
-        <thead>
-          <tr>
-            <th>Invoice Number</th>
-            <th>Invoice Item</th>
-            <th>Creation Date</th>
-            <th>Due Date</th>
-            <th>Amount</th>
-            <th>Paid Amount</th>
-            <th>Balance</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let invoice of filteredInvoices">
-            <td>{{ invoice.id }}</td>
-            <td>{{ invoice.invoiceItem }}</td>
-            <td>{{ invoice.creationDate }}</td>
-            <td>{{ invoice.dueDate }}</td>
-            <td>{{ invoice.amount }}</td>
-            <td>{{ invoice.paidAmount }}</td>
-            <td>{{ invoice.balance }}</td>
-            <td>{{ invoice.status }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    
+
+  <div class="container">
+    <ul class="responsive-table" >
+      <li class="table-header">
+        <div class="col col-1">ID</div>
+        <div class="col col-2">Invoice Item</div>
+        <div class="col col-3">Creation Date</div>
+        <div class="col col-4">Due Date</div>
+        <div class="col col-4">Amount</div>
+        <div class="col col-4">Paid Amount</div>
+        <div class="col col-4">Balance</div>
+        <div class="col col-4">Status</div>
+      </li>
+      <li class="table-row"  *ngFor="let invoice of filteredInvoices">
+        <div class="col col-1" data-label="Invoice Id">{{ invoice.id }}</div>
+        <div class="col col-2" data-label="Invoice Item">{{ invoice.invoiceItem }}</div>
+        <div class="col col-3" data-label="Creation Date">{{ invoice.creationDate }}</div>
+        <div class="col col-4" data-label="Due Date">{{ invoice.dueDate }}</div>
+        <div class="col col-4" data-label="Amount">{{ invoice.amount }}</div>
+        <div class="col col-4" data-label="Paid Amount">{{ invoice.paidAmount }}</div>
+        <div class="col col-4" data-label="Balance">{{ invoice.balance }}</div>
+        <div class="col col-4" data-label="Status">{{ invoice.status }}</div>
+      </li>
+    </ul>
   </div>
   
