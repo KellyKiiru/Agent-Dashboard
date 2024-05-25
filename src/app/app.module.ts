@@ -21,6 +21,9 @@ import { MyChartComponent } from './my-chart/my-chart.component';
 import { TashboardComponent } from './tashboard/tashboard.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { FormsModule } from '@angular/forms';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -39,14 +42,17 @@ import { FormsModule } from '@angular/forms';
     InvoicesComponent,
     MyChartComponent,
     TashboardComponent,
-    InvoicesListComponent
+    InvoicesListComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxChartsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
