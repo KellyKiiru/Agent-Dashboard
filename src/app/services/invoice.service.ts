@@ -7,9 +7,10 @@ import { Invoice } from '../interfaces/invoice.interface';
   providedIn: 'root'
 })
 export class InvoiceService {
-  // private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000';
 
-  private apiUrl = 'https://kellykiiru.github.io/Agent-Dashboard.github.io'; 
+
+  // private apiUrl = 'https://kellykiiru.github.io/Agent-Dashboard.github.io'; 
 
   constructor(private http: HttpClient) { }
 
