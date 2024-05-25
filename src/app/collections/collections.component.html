@@ -1,15 +1,25 @@
 <div class="container">
     <h2>Collections</h2>
-    <ul class="list-group">
-      <li *ngFor="let collection of collections" class="list-group-item">
-        <div>ID: {{ collection.id }}</div>
-        <div>School ID: {{ collection.schoolId }}</div>
-        <div>Invoice ID: {{ collection.invoiceId }}</div>
-        <div>Date: {{ collection.date }}</div>
-        <div>Amount: {{ collection.amount }}</div>
-        <div>Status: {{ collection.status }}</div>
-        <button (click)="updateCollectionStatus(collection.id, 'Valid')" class="btn btn-success">Mark as Valid</button>
-        <button (click)="updateCollectionStatus(collection.id, 'Bounced')" class="btn btn-danger">Mark as Bounced</button>
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="list-group">
+          <div *ngFor="let collection of collections" class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-1">Collection ID: {{ collection.id }}</h5>
+                <p class="mb-1">School ID: {{ collection.schoolId }}</p>
+                <p class="mb-1">Invoice ID: {{ collection.invoiceId }}</p>
+                <p class="mb-1">Date: {{ collection.date | date }}</p>
+                <p class="mb-1">Amount: {{ collection.amount | currency:'USD':'symbol':'1.2-2' }}</p>
+                <p class="mb-1">Status: {{ collection.status }}</p>
+              </div>
+              <div>
+                <button (click)="updateCollectionStatus(collection.id, 'Valid')" class="btn btn-success me-2">Mark as Valid</button>
+                <button (click)="updateCollectionStatus(collection.id, 'Bounced')" class="btn btn-danger">Mark as Bounced</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
