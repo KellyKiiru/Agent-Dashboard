@@ -19,6 +19,10 @@ export class DataService {
     return await firstValueFrom(this.http.get(`${this.apiUrl}/collections`));
   }
 
+  getCollectionsById(schoolId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/collections?schoolId=${schoolId}`);
+  }
+
   async getSignups(): Promise<any> {
     return await firstValueFrom(this.http.get(`${this.apiUrl}/signups`));
   }
@@ -29,6 +33,10 @@ export class DataService {
 
   async getInvoices(): Promise<any> {
     return await firstValueFrom(this.http.get(`${this.apiUrl}/invoices`));
+  }
+   
+  getInvoicesById(schoolId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/invoices?schoolId=${schoolId}`);
   }
 
   async getSchools(): Promise<any> {
