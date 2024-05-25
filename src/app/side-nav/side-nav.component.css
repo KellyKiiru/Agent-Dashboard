@@ -1,0 +1,12 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .mat-nav-list a {
+    text-decoration: none;
+  }
+  
+  .active {
+    background-color: #e0e0e0;
+  }
+  
