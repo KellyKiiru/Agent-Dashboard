@@ -22,8 +22,9 @@ import { TashboardComponent } from './tashboard/tashboard.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { FormsModule } from '@angular/forms';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
+import {  MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatSidenavModule,
     MatListModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
