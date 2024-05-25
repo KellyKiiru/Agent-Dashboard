@@ -40,13 +40,13 @@
         <div class="col col-3" data-label="Creation Date">
           {{ invoice.creationDate }}
         </div>
-        <div class="col col-4" data-label="Due Date">{{ invoice.dueDate }}</div>
         <div class="col col-4" data-label="Amount">{{ invoice.amount }}</div>
         <div class="col col-4" data-label="Paid Amount">
           {{ invoice.paidAmount }}
         </div>
         <div class="col col-4" data-label="Balance">{{ invoice.balance }}</div>
         <div class="col col-4" data-label="Status">{{ invoice.status }}</div>
+        <div class="col col-4" data-label="Due Date">{{ invoice.dueDate }}</div>
         <div class="col col-4" data-label="Actions">
           <button class="btn btn-sm btn-warning" (click)="editInvoice(invoice)">
             Edit

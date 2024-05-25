@@ -116,8 +116,30 @@
       "invoiceItem": "Zeraki Finance",
       "creationDate": "2024-04-20",
       "dueDate": "2024-05-20",
-      "amount": 7000,
-      "paidAmount": 7000,
+      "amount": 12000,
+      "paidAmount": 3000,
+      "balance": 9000,
+      "status": "Completed"
+    },
+    {
+      "id": "1",
+      "schoolId": 1,
+      "invoiceItem": "Zeraki Analytics",
+      "creationDate": "2023-04-01",
+      "dueDate": "2024-05-01",
+      "amount": 6000,
+      "paidAmount": 1000,
+      "balance": 4000,
+      "status": "Pending"
+    },
+    {
+      "id": "1",
+      "schoolId": 1,
+      "invoiceItem": "Zeraki Analytics",
+      "creationDate": "2024-10-01",
+      "dueDate": "2024-05-01",
+      "amount": 12000,
+      "paidAmount": 12000,
       "balance": 0,
       "status": "Completed"
     }
