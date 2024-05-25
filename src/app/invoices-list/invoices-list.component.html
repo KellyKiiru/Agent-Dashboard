@@ -1,22 +1,21 @@
 <div class="container mt-4">
-    <h2>Invoices</h2>
-  
-    <div class="row mb-3">
-      <div class="col-md-3">
-        <div class="filter-card">
-          <label for="filterSelect" class="form-label">Filter:</label>
-          <select id="filterSelect" class="form-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
-            <option value="all">All</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-          </select>
-        </div>
+  <h2>Invoices</h2>
+
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <div class="filter-card">
+        <label for="filterSelect" class="form-label">Filter: </label>
+        <select id="filterSelect" class="form-select" [(ngModel)]="filterStatus" (change)="applyFilter()">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
+        </select>
       </div>
     </div>
-    
+  </div>
 
   <div class="container">
-    <ul class="responsive-table" >
+    <ul class="responsive-table">
       <li class="table-header">
         <div class="col col-1">ID</div>
         <div class="col col-2">Invoice Item</div>
@@ -26,8 +25,9 @@
         <div class="col col-4">Paid Amount</div>
         <div class="col col-4">Balance</div>
         <div class="col col-4">Status</div>
+        <div class="col col-4">Actions</div>
       </li>
-      <li class="table-row"  *ngFor="let invoice of filteredInvoices">
+      <li class="table-row" *ngFor="let invoice of filteredInvoices">
         <div class="col col-1" data-label="Invoice Id">{{ invoice.id }}</div>
         <div class="col col-2" data-label="Invoice Item">{{ invoice.invoiceItem }}</div>
         <div class="col col-3" data-label="Creation Date">{{ invoice.creationDate }}</div>
@@ -36,7 +36,67 @@
         <div class="col col-4" data-label="Paid Amount">{{ invoice.paidAmount }}</div>
         <div class="col col-4" data-label="Balance">{{ invoice.balance }}</div>
         <div class="col col-4" data-label="Status">{{ invoice.status }}</div>
+        <div class="col col-4" data-label="Actions">
+          <button class="btn btn-sm btn-warning" (click)="editInvoice(invoice)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteInvoice(invoice.id)">Delete</button>
+        </div>
       </li>
     </ul>
   </div>
-  
+
+  <div class="invoice-management">
+    <div class="row mb-3">
+      <div class="col-md-9 text-end">
+        <button class="btn btn-primary" (click)="openInvoiceForm()">Add Invoice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding/editing invoices -->
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="isModalOpen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ isEditing ? 'Edit Invoice' : 'Add Invoice' }}</h5>
+          <button type="button" class="close" (click)="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="saveInvoice()">
+            <div class="form-group">
+              <label for="invoiceItem">Invoice Item</label>
+              <input type="text" id="invoiceItem" [(ngModel)]="currentInvoice.invoiceItem" name="invoiceItem" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="creationDate">Creation Date</label>
+              <input type="date" id="creationDate" [(ngModel)]="currentInvoice.creationDate" name="creationDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="dueDate">Due Date</label>
+              <input type="date" id="dueDate" [(ngModel)]="currentInvoice.dueDate" name="dueDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount</label>
+              <input type="number" id="amount" [(ngModel)]="currentInvoice.amount" name="amount" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="paidAmount">Paid Amount</label>
+              <input type="number" id="paidAmount" [(ngModel)]="currentInvoice.paidAmount" name="paidAmount" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="balance">Balance</label>
+              <input type="number" id="balance" [(ngModel)]="currentInvoice.balance" name="balance" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" [(ngModel)]="currentInvoice.status" name="status" class="form-select">
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">{{ isEditing ? 'Update' : 'Save' }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
