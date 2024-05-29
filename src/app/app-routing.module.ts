@@ -5,6 +5,7 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 import { SchoolsListComponent } from './schools/schools-list/schools-list.component';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 import { CollectionsComponent } from './collections/collections.component';
+import { InvoiceAdditionComponent } from './invoice-addition/invoice-addition.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'school-list', component: SchoolsListComponent },
   { path: 'school-details/:id', component: SchoolDetailsComponent },
   { path: 'invoices', component: InvoicesListComponent },
-  { path: 'collections', component: CollectionsComponent }
+  { path: 'collections', component: CollectionsComponent },
+  { path: 'add-invoices', component: InvoiceAdditionComponent }
+  
 ];
 
 @NgModule({

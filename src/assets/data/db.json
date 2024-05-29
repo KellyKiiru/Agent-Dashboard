@@ -123,7 +123,7 @@
       "collections": []
     },
     {
-      "id": 0,
+      "id": "0",
       "schoolId": 0,
       "invoiceItem": " Zeraki Analytics",
       "creationDate": "2024-05-23",
@@ -132,6 +132,30 @@
       "paidAmount": 2732,
       "balance": 217,
       "status": "Pending",
+      "collections": []
+    },
+    {
+      "id": 6,
+      "schoolId": 0,
+      "invoiceItem": "Zeraki Timetable",
+      "creationDate": "2024-05-07",
+      "dueDate": "2024-05-30",
+      "amount": 575,
+      "paidAmount": 575,
+      "balance": 0,
+      "status": "Completed",
+      "collections": []
+    },
+    {
+      "id": 7,
+      "schoolId": 0,
+      "invoiceItem": "Zeraki Timetable",
+      "creationDate": "2024-05-07",
+      "dueDate": "2024-05-30",
+      "amount": 575,
+      "paidAmount": 575,
+      "balance": 0,
+      "status": "Completed",
       "collections": []
     }
   ]

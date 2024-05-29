@@ -1,3 +1,4 @@
+import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
@@ -19,6 +20,8 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { InvoiceAdditionComponent } from './invoice-addition/invoice-addition.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     DashboardComponent,
     InvoicesListComponent,
     SideNavComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    InvoiceAdditionComponent,
+    
   ],
   imports: [
     BrowserModule,
