@@ -1,4 +1,3 @@
-import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
