@@ -1,0 +1,46 @@
+<form (ngSubmit)="saveInvoice()" class="invoice-form">
+    <div class="form-group">
+      <label for="invoiceItem">Invoice Item</label>
+      <input type="text" id="invoiceItem" [(ngModel)]="currentInvoice.invoiceItem" name="invoiceItem" class="form-control" required />
+    </div>
+  
+    <div class="row"> 
+      <div class="form-group col-md-6">
+        <label for="creationDate">Creation Date</label>
+        <input type="date" id="creationDate" [(ngModel)]="currentInvoice.creationDate" name="creationDate" class="form-control" required />
+      </div>
+  
+      <div class="form-group col-md-6">
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" [(ngModel)]="currentInvoice.dueDate" name="dueDate" class="form-control" required />
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" [(ngModel)]="currentInvoice.amount" name="amount" class="form-control" required />
+      </div>
+  
+      <div class="form-group col-md-4">
+        <label for="paidAmount">Paid Amount</label>
+        <input type="number" id="paidAmount" [(ngModel)]="currentInvoice.paidAmount" name="paidAmount" class="form-control" />
+      </div>
+  
+      <div class="form-group col-md-4">
+        <label for="balance">Balance</label>
+        <input type="number" id="balance" [(ngModel)]="currentInvoice.balance" name="balance" class="form-control" readonly /> 
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" [(ngModel)]="currentInvoice.status" name="status" class="form-select">
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">{{ isEditing ? "Update" : "Save" }}</button>
+  </form>
+  

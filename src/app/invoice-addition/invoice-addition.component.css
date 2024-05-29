@@ -1,0 +1,27 @@
+.invoice-form {
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;  /* Center the form */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .row {
+    display: flex; /* Enable flexible layout */
+    flex-wrap: wrap; /* Allow wrapping to next line */
+    margin-bottom: -15px; /* Counteract margin on form groups */
+  }
+  
+  .col-md-6, .col-md-4 {
+    padding: 0 15px; /* Add spacing between columns */
+    flex: 0 0 50%;  /* Equal width on medium screens (6 columns) */
+    max-width: 50%;
+  }
+  
+  @media (max-width: 768px) { 
+    .col-md-6, .col-md-4 {
+      flex: 0 0 100%; /* Full width on smaller screens */
+      max-width: 100%;
+    }
+  }
